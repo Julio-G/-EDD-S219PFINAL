@@ -18,6 +18,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;  
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class EDDclase extends JFrame{
     JLabel lbbienvenida,lbnombre,lbcontra;
     JTextField Nsesion,Csesion;
@@ -53,11 +55,14 @@ public class EDDclase extends JFrame{
 	{
             @Override
             public void actionPerformed(ActionEvent e){
-                if(Nsesion.getText().equals("admin") && Csesion.getText().equals("admin")){
-                  
-                }else{
-                    
-                    
+                try {
+                    String comp=sd.buscar(Nsesion.getText(), toHexString(getSHA(Csesion.getText())));
+                    if(!comp.equals("nada")){
+                        
+                        
+                    }
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(EDDclase.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -69,7 +74,8 @@ public class EDDclase extends JFrame{
 	{
             @Override
             public void actionPerformed(ActionEvent e){
-                
+                usuario bal=new usuario();
+                bal.setVisible(true);
             }
         });
         add(lbbienvenida);

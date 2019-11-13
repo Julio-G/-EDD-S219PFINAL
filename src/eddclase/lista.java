@@ -21,4 +21,15 @@ public class lista {
             inicio=nuevo;
         }
     }
+    public String buscar(String nombre,String contraseña){
+        lnodo aux=inicio;
+        
+        while(aux!=null){
+            if(aux.nombre.equals(nombre)&&aux.contraseña.equals(contraseña)){
+                return aux.nombre;
+            }
+            aux=aux.sig;
+        }
+        return "nada";
+    }
 }
