@@ -24,11 +24,12 @@ public class EDDclase extends JFrame{
     JLabel lbbienvenida,lbnombre,lbcontra;
     JTextField Nsesion,Csesion;
     JButton btningresar,btnregistrar;
+    public static String norm;
     public static lista sd= new lista();
      public EDDclase(){
         super("EDD drive");
         //setSize(800,550);
-        setBounds(550,200,350,420);
+        setBounds(550,200,350,390);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
         progra();
@@ -58,8 +59,12 @@ public class EDDclase extends JFrame{
                 try {
                     String comp=sd.buscar(Nsesion.getText(), toHexString(getSHA(Csesion.getText())));
                     if(!comp.equals("nada")){
+                        norm=comp;
+                        sesion sj = new sesion();
+                        sj.setVisible(true);
                         
-                        
+                    }else{
+                         JOptionPane.showMessageDialog(null,"Los datos no coinciden");
                     }
                 } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(EDDclase.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,7 +124,7 @@ public class EDDclase extends JFrame{
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         System.out.println(timestamp);
         sd.insertar("admin",toHexString(getSHA("admin")));
-        
+       
         EDDclase df = new EDDclase();
         df.setVisible(true);
     }

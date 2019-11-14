@@ -1,0 +1,51 @@
+digraph G {
+node[shape=record, style=filled];
+graph[pencolor=transparent]
+edge[color=black];
+MATRIZ[label="Inicio",pos="0,0!"];
+MATRIZ ->ndC10;
+ndC10 [label = "comida",fillcolor = orangered, pos="1.5,0!"];
+ndC10->ndC20[dir=both];
+ndC20 [label = "higiene",fillcolor = orangered, pos="3.0,0!"];
+ndC20->ndC30[dir=both];
+ndC30 [label = "limpieza",fillcolor = orangered, pos="4.5,0!"];
+
+MATRIZ ->ndF01;
+ndF01 [label = "Nombre: lays\n Marca: diana",fillcolor = orangered, pos="0,-1!"];
+ndF01->ndF02[dir=both];
+ndF02 [label = "jabon\n Marca: protex",fillcolor = orangered, pos="0,-2!"];
+ndF02->ndF03[dir=both];
+ndF03 [label = "desinfectante\n Marca: limpio",fillcolor = orangered, pos="0,-3!"];
+ndF03->ndF04[dir=both];
+ndF04 [label = "chetos\n Marca: diana",fillcolor = orangered, pos="0,-4!"];
+ndF04->ndF05[dir=both];
+ndF05 [label = "cloro\n Marca: limpio",fillcolor = orangered, pos="0,-5!"];
+ndF05->ndF06[dir=both];
+ndF06 [label = "shampo\n Marca: aloe",fillcolor = orangered, pos="0,-6!"];
+
+ndF01-> nd11[dir=both];
+nd11[label = "13",fillcolor=gold, pos="1.5,-1!" ];
+ndF02-> nd22[dir=both];
+nd22[label = "8",fillcolor=gold, pos="3.0,-2!" ];
+ndF03-> nd33[dir=both];
+nd33[label = "3",fillcolor=gold, pos="4.5,-3!" ];
+ndF04-> nd14[dir=both];
+nd14[label = "12",fillcolor=gold, pos="1.5,-4!" ];
+ndF05-> nd35[dir=both];
+nd35[label = "9",fillcolor=gold, pos="4.5,-5!" ];
+ndF06-> nd26[dir=both];
+nd26[label = "7",fillcolor=gold, pos="3.0,-6!" ];
+ndC10-> nd11[dir=both];
+nd11[label = "13",fillcolor=gold, pos="1.5,-1!" ];
+nd11 -> nd14[dir=both];
+nd14[label = "12",fillcolor=gold,  pos="1.5,-4!"];
+ndC20-> nd22[dir=both];
+nd22[label = "8",fillcolor=gold, pos="3.0,-2!" ];
+nd22 -> nd26[dir=both];
+nd26[label = "7",fillcolor=gold,  pos="3.0,-6!"];
+ndC30-> nd33[dir=both];
+nd33[label = "3",fillcolor=gold, pos="4.5,-3!" ];
+nd33 -> nd35[dir=both];
+nd35[label = "9",fillcolor=gold,  pos="4.5,-5!"];
+
+ }
