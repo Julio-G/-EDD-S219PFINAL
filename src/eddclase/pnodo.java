@@ -17,10 +17,11 @@ public class pnodo {
     public String producto;
     public String categoria;
     public String marca;
+    public float precio;
     public int x,cant;
     public int y;
     public String codigo;
-    public pnodo(String codigo,int cant,String producto,String categoria,String marca,pnodo der,pnodo izq,pnodo arriba,pnodo abajo,int x,int y){
+    public pnodo(float precio, String codigo,int cant,String producto,String categoria,String marca,pnodo der,pnodo izq,pnodo arriba,pnodo abajo,int x,int y){
         this.producto=producto;
         this.categoria=categoria;
         this.marca=marca;
@@ -32,5 +33,6 @@ public class pnodo {
         this.y=y;
         this.cant=cant;
         this.codigo=codigo;
+        this.precio=precio;
     }
 }

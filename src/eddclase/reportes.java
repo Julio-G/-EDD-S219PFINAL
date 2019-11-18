@@ -5,10 +5,6 @@
  */
 package eddclase;
 
-/**
- *
- * @author Julio Garcia
- */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -18,10 +14,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class sesion extends JFrame{
+public class reportes extends JFrame{
     JLabel lbbienvenida,lbnombre,lbver;
     JButton btnregistrar,btnvender,btnreporte;
-    public sesion(){
+    public reportes(){
         super("EDD drive");
         //setSize(800,550);
         setBounds(550,200,350,380);
@@ -29,61 +25,42 @@ public class sesion extends JFrame{
         setLayout(null);
         progra();
     }
-     public void progra(){
+    public void progra(){
         Font fuente1= new Font("Comic Sans MS",0,16);
         Font fuente= new Font("Comic Sans MS",0,26);
-        lbbienvenida=new JLabel ("Opciones");
+        lbbienvenida=new JLabel ("REPORTES");
 	lbbienvenida.setFont(fuente); 
         lbbienvenida.setBounds(105,50,300,50);
-        lbnombre=new JLabel ("Usuario: "+EDDclase.norm);
-        lbnombre.setFont(fuente1); 
-        lbnombre.setBounds(10,1,200,50);
       
      
        
-        btnregistrar = new JButton("Registrar");
-	btnregistrar.setBounds(110,110,110,20);
+        btnregistrar = new JButton("Matriz productos");
+	btnregistrar.setBounds(80,110,180,20);
 	btnregistrar.setBackground(Color.white);
 	btnregistrar.setFont(fuente1);
 	btnregistrar.addActionListener(new ActionListener()
 	{
             @Override
             public void actionPerformed(ActionEvent e){
-                productos fh = new productos();
-                fh.setVisible(true);
-            }
-        });
-        btnreporte = new JButton("Reportes");
-	btnreporte.setBounds(110,190,110,20);
-	btnreporte.setBackground(Color.white);
-	btnreporte.setFont(fuente1);
-	btnreporte.addActionListener(new ActionListener()
-	{
-            @Override
-            public void actionPerformed(ActionEvent e){
-                reportes vb= new reportes();
-                vb.setVisible(true);
+                EDDclase.kl.graficar();
             }
         });
         
-        btnvender = new JButton("Vender");
-	btnvender.setBounds(110,150,110,20);
+        btnvender = new JButton("Matriz facturas");
+	btnvender.setBounds(90,150,160,20);
 	btnvender.setBackground(Color.white);
 	btnvender.setFont(fuente1);
 	btnvender.addActionListener(new ActionListener()
 	{
             @Override
             public void actionPerformed(ActionEvent e){
-                factura dl=new factura();
-                dl.setVisible(true);
+                EDDclase.ls.graficar();
             }
         });
         
         add(lbbienvenida);
-        add(lbnombre);
         add(btnregistrar);
         add(btnvender);
-        add(btnreporte);
         
-   }
+   }    
 }

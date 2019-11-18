@@ -24,8 +24,11 @@ public class EDDclase extends JFrame{
     JLabel lbbienvenida,lbnombre,lbcontra;
     JTextField Nsesion,Csesion;
     JButton btningresar,btnregistrar;
+    public static mprod kl = new mprod();
     public static String norm;
     public static lista sd= new lista();
+    public static matriz ls= new matriz();
+    public static int fcont;
      public EDDclase(){
         super("EDD drive");
         //setSize(800,550);
@@ -124,7 +127,34 @@ public class EDDclase extends JFrame{
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         System.out.println(timestamp);
         sd.insertar("admin",toHexString(getSHA("admin")));
-       
+        kl.insertar(10, "0001", 7,"jabon","higiene","avon");
+        kl.insertar(6, "0002", 5,"jabon de mano","higiene","avon");
+       /* int []so=new int[10];
+        so[0]=1;
+        so[1]=2;
+        so[2]=3;
+        for(int i=0; so[i]!=0;i++){
+            System.out.println(so[i]);
+        }*/
+      /* matriz ds= new matriz();
+       String []jus=new String[5];
+       jus[0]="5";
+       jus[0]="6";
+       String []jus1=new String[5];
+       jus1[0]="jabon";
+       jus1[0]="cafe";
+       String []jus2=new String[5];
+       jus2[0]="001";
+       jus2[0]="002";
+       int []jus4=new int[5];
+       jus4[0]=100;
+       jus4[0]=200;
+       int total=10;
+       ds.insertar("juls1", "12345a",jus,jus1,jus2,jus4,10,"2/5/19","12:31");
+       ds.insertar("juls2", "12345s",jus,jus1,jus2,jus4,12,"2/5/19","12:32");
+       ds.insertar("juls3", "12345d",jus,jus1,jus2,jus4,13,"2/5/19","12:33");
+       ds.insertar("juls1", "12345a",jus,jus1,jus2,jus4,14,"2/5/19","12:34");
+       ds.graficar();*/
         EDDclase df = new EDDclase();
         df.setVisible(true);
     }

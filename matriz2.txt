@@ -1,0 +1,21 @@
+digraph G {
+node[shape=record, style=filled];
+graph[pencolor=transparent]
+edge[color=black];
+MATRIZ[label="Matriz",pos="0,0!"];
+MATRIZ ->ndC10;
+ndC10 [label = "19:18",fillcolor = orangered, pos="1.5,0!"];
+ndC10->ndC20[dir=both];
+ndC20 [label = "19:19",fillcolor = orangered, pos="3.0,0!"];
+
+MATRIZ ->ndF01;
+ndF01 [label = "julio",fillcolor = orangered, pos="0,-1!"];
+
+ndF01-> nd11[dir=both];
+nd11[label = "30.0",fillcolor=gold, pos="1.5,-1!" ];
+nd11-> nd21[dir=both];
+nd21[label = "20.0",fillcolor=gold,  pos="3.0,-1!"];
+ndC10-> nd11[dir=both];
+ndC20-> nd21[dir=both];
+
+ }

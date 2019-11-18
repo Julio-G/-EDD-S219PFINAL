@@ -5,6 +5,8 @@
  */
 package eddclase;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,12 +21,12 @@ public class mprod {
     public  pnodo ultimoy=null;
     public  int x=1;
     public  int y=1;
-    public void insertar(String codigo,int cantidad,String producto,String categoria,String marca){
+    public void insertar(float precio,String codigo,int cantidad,String producto,String categoria,String marca){
          if(inicio==null){
-            pnodo nuevo1= new pnodo("espacio",0,"espacio",categoria,"espacio",null,null,null,null,x,0);
-            pnodo nuevo2= new pnodo(codigo,0,producto,categoria,marca,null,null,null,null,0,y);
-            pnodo nuevo3= new pnodo("inicio",0,"inicio","inicio","inicio",nuevo1,null,null,nuevo2,0,0);
-            pnodo nuevo4= new pnodo(codigo,cantidad,"espacio","espacio","espacio",null,nuevo2,nuevo1,null,x,y);
+            pnodo nuevo1= new pnodo(0,"espacio",0,"espacio",categoria,"espacio",null,null,null,null,x,0);
+            pnodo nuevo2= new pnodo(precio,codigo,0,producto,categoria,marca,null,null,null,null,0,y);
+            pnodo nuevo3= new pnodo(0,"inicio",0,"inicio","inicio","inicio",nuevo1,null,null,nuevo2,0,0);
+            pnodo nuevo4= new pnodo(precio,codigo,cantidad,"espacio","espacio","espacio",null,nuevo2,nuevo1,null,x,y);
             nuevo1.abajo=nuevo4;
             nuevo2.der=nuevo4;
             nuevo1.izq=nuevo3;
@@ -40,8 +42,8 @@ public class mprod {
                       pnodo aux=encontrar2(producto,marca,categoria);
                       aux.der.cant=aux.der.cant+cantidad;
                 }else{
-                    pnodo nuevo2= new pnodo(codigo,0,producto,categoria,marca,null,null,ultimoy,null,0,y);
-                    pnodo nuevo3= new pnodo(codigo,cantidad,"espacio","espacio","espacio",null,nuevo2,null,null,0,y);
+                    pnodo nuevo2= new pnodo(precio,codigo,0,producto,categoria,marca,null,null,ultimoy,null,0,y);
+                    pnodo nuevo3= new pnodo(precio,codigo,cantidad,"espacio","espacio","espacio",null,nuevo2,null,null,0,y);
                     y++;
                     nuevo2.der=nuevo3;
                     ultimoy.abajo=nuevo2;
@@ -55,9 +57,9 @@ public class mprod {
                     aux.abajo=nuevo3;
                 }
              }else{
-                pnodo nuevo1= new pnodo("espacio",0,"espacio",categoria,"espacio",null,ultimox,null,null,x,0);
-                pnodo nuevo2= new pnodo(codigo,0,producto,categoria,marca,null,null,ultimoy,null,0,y);
-                pnodo nuevo3= new pnodo("espacio",cantidad,"espacio","espacio","espacio",null,nuevo2,nuevo1,null,x,y);
+                pnodo nuevo1= new pnodo(0,"espacio",0,"espacio",categoria,"espacio",null,ultimox,null,null,x,0);
+                pnodo nuevo2= new pnodo(precio,codigo,0,producto,categoria,marca,null,null,ultimoy,null,0,y);
+                pnodo nuevo3= new pnodo(precio,"espacio",cantidad,"espacio","espacio","espacio",null,nuevo2,nuevo1,null,x,y);
                 x++;
                 y++;
                 nuevo2.der=nuevo3;
@@ -110,6 +112,44 @@ public class mprod {
             aux=aux.abajo;
         }
         return null;
+    }
+    public String bnombre(String codigo){
+        pnodo aux=inicio.abajo;
+        while(aux!=null){
+            if(aux.codigo.equals(codigo)){
+                return aux.producto;
+            }
+             aux=aux.abajo;
+        }
+        return "no existe";
+    }
+    public float bprecio(String codigo){
+        pnodo aux=inicio.abajo;
+        while(aux!=null){
+            if(aux.codigo.equals(codigo)){
+                return aux.precio;
+            }
+            aux=aux.abajo;
+        }
+        return 0;
+    }
+    public boolean resta(String codigo,int cant){
+        pnodo aux=inicio.abajo;
+        while(aux!=null){
+            if(aux.codigo.equals(codigo)){
+                int bol=aux.der.cant;
+                bol=bol-cant;
+                
+                if(bol<0){
+                    return false;
+                }else{
+                    aux.der.cant=aux.der.cant-cant;
+                    return true;
+                }
+            }
+            aux=aux.abajo;
+        }
+        return false;
     }
     public void graficar(){
         int contx=0;
@@ -259,9 +299,24 @@ public class mprod {
                     ex.printStackTrace();
                 } finally {
                 }
+                abrirarchivo("matriz.png");
             
             
         
         }
     }
+    public void abrirarchivo(String archivo){
+
+     try {
+
+            File objetofile = new File (archivo);
+            Desktop.getDesktop().open(objetofile);
+
+     }catch (IOException ex) {
+
+            System.out.println(ex);
+
+     }
+
+}        
 }
