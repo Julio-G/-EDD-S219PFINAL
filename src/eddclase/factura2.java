@@ -96,6 +96,7 @@ public class factura2 extends JFrame {
 	{
             @Override
             public void actionPerformed(ActionEvent e){
+                if(nombre[0]!=null){
                 float total=0;
                 for(int i=0;nombre[i]!=null;i++){
                     total=total+cantidad[i]*precio[i];
@@ -112,14 +113,14 @@ public class factura2 extends JFrame {
             String ruta = "factura.txt";
             String contenido = "--------Datos del vendedor--------\n";
             contenido+="        Tienda del chino, S.A.\n";
-            contenido+="0 calle 0-60,z.7\n";
+            contenido+="        0 calle 0-60,z.7\n";
             contenido+="--------Datos del cliente--------\n";
             contenido+="       Nombre: "+factura.cliente+"\n";
             contenido+="       NIT: "+factura.nit+"\n";
             contenido+="---Descripcion de la factura---\n";
             for(int i=0;nombre[i]!=null;i++){
-                contenido+="Cant.       Descripcion      precio\n";
-                contenido+="  "+cantidad[i]+"     "+nombre[i]+"     "+precio[i]+"\n";
+                contenido+="Cant.    Descripcion    codigo   precio\n";
+                contenido+="  "+cantidad[i]+"     "+nombre[i]+"     "+codigo[i]+"   "+precio[i]+"\n";
      
             }
             contenido+="Total: "+total;
@@ -132,10 +133,11 @@ public class factura2 extends JFrame {
             bw.write(contenido);
             bw.close();
             JOptionPane.showMessageDialog(null,"Factura generada");
+            abrirarchivo("factura.txt");
         } catch (IOException p) {
             p.printStackTrace();
         }
-         
+                }
             }
         });
         add(lbbienvenida);
@@ -147,4 +149,17 @@ public class factura2 extends JFrame {
         add(btningresar);
         
    }
+     public void abrirarchivo(String archivo){
+
+     try {
+
+            File objetofile = new File (archivo);
+            Desktop.getDesktop().open(objetofile);
+
+     }catch (IOException ex) {
+
+            System.out.println(ex);
+
+     }
+    }
 }

@@ -1,0 +1,8 @@
+----------------------Inventario----------------------
+**higiene: 
+Cant.    Descripcion    codigo   precio
+  7     jabon    0001    10.0
+  5     jabon de mano    0002    6.0
+**limpieza: 
+Cant.    Descripcion    codigo   precio
+  10     desinfectante    0003    5.5

@@ -58,9 +58,23 @@ public class reportes extends JFrame{
             }
         });
         
+        btnreporte = new JButton("Inventario");
+	btnreporte.setBounds(90,190,160,20);
+	btnreporte.setBackground(Color.white);
+	btnreporte.setFont(fuente1);
+	btnreporte.addActionListener(new ActionListener()
+	{
+            @Override
+            public void actionPerformed(ActionEvent e){
+                EDDclase.kl.in();
+            }
+        });
+        
         add(lbbienvenida);
         add(btnregistrar);
         add(btnvender);
+        add(btnreporte);
+        
         
    }    
 }

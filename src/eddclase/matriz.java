@@ -117,13 +117,13 @@ public class matriz {
                 contx++;
                 contenido+= "MATRIZ ->ndC"+aux1.x+aux1.y+";\n";
                 
-                contenido += "ndC" + aux1.x+aux1.y + " [label = \""+aux1.hora+"\",fillcolor = orangered, pos=\""+(aux1.x*1.5)+",0!\"];\n";
+                contenido += "ndC" + aux1.x+aux1.y + " [label = \"Fecha: "+aux1.fecha+"\\n Hora: "+aux1.hora+"\",fillcolor = orangered, pos=\""+(aux1.x*1.5)+",0!\"];\n";
                 
                 contx++;
                 while(aux1.der!=null){
                     
                     contenido += "ndC" + aux1.x+aux1.y + "->" + "ndC" +aux1.der.x+aux1.der.y+"[dir=both];\n";
-                    contenido += "ndC" + aux1.der.x+aux1.der.y + " [label = \"" + aux1.der.hora +"\",fillcolor = orangered, pos=\""+(aux1.der.x*1.5)+",0!\"];\n";
+                    contenido += "ndC" + aux1.der.x+aux1.der.y + " [label = \"Fecha: "+aux1.der.fecha+"\\n Hora: "+ aux1.der.hora +"\",fillcolor = orangered, pos=\""+(aux1.der.x*1.5)+",0!\"];\n";
                     contx++;
                     aux1 = aux1.der;
                 }
@@ -136,13 +136,13 @@ public class matriz {
                 conty++;
                 contenido+= "MATRIZ ->ndF"+aux2.x+aux2.y+";\n";
                 
-                contenido += "ndF" + aux2.x+aux2.y + " [label = \""+aux2.cliente+"\",fillcolor = orangered, pos=\""+0+",-"+aux2.y+"!\"];\n";
+                contenido += "ndF" + aux2.x+aux2.y + " [label = \"Nombre: "+aux2.cliente+"\\n ID: "+aux2.nit+"\",fillcolor = orangered, pos=\""+0+",-"+aux2.y+"!\"];\n";
                 
                 conty++;
                 while(aux2.abajo!=null){
                     
                     contenido += "ndF" + aux2.x+aux2.y  + "->" + "ndF" +aux2.abajo.x+aux2.abajo.y+"[dir=both];\n";
-                    contenido += "ndF" + aux2.abajo.x+aux2.abajo.y + " [label = \"" + aux2.abajo.cliente +"\",fillcolor = orangered, pos=\""+0+",-"+aux2.abajo.y+"!\"];\n";
+                    contenido += "ndF" + aux2.abajo.x+aux2.abajo.y + " [label = \"Nombre :" + aux2.abajo.cliente+"\\n ID: "+aux2.abajo.nit+"\",fillcolor = orangered, pos=\""+0+",-"+aux2.abajo.y+"!\"];\n";
                     conty++;
                     aux2 = aux2.abajo;
                 }
@@ -158,13 +158,13 @@ public class matriz {
                     if(aux1.der!=null){
                         contenido += "ndF" +aux1.x+aux1.y + "-> nd" +aux1.der.x+aux1.der.y+ "[dir=both];\n";
                         
-                        contenido += "nd" +aux1.der.x+aux1.der.y+ "[label = \"" +aux1.der.total + "\",fillcolor=gold, pos=\""+(aux1.der.x*1.5)+",-"+aux1.der.y+"!\" ];\n";
+                        contenido += "nd" +aux1.der.x+aux1.der.y+ "[label = \"Total : Q" +aux1.der.total + "\",fillcolor=gold, pos=\""+(aux1.der.x*1.5)+",-"+aux1.der.y+"!\" ];\n";
                         
                         contx++;
                         aux1=aux1.der;
                         while(aux1.der!=null){
                             contenido += "nd" + aux1.x+aux1.y +"-> nd" +aux1.der.x+aux1.der.y+ "[dir=both];\n";
-                            contenido += "nd" +aux1.der.x+aux1.der.y+ "[label = \"" +aux1.der.total+ "\",fillcolor=gold,  pos=\""+(aux1.der.x*1.5)+",-"+aux1.der.y+"!\"];\n";
+                            contenido += "nd" +aux1.der.x+aux1.der.y+ "[label = \" Total : Q" +aux1.der.total+ "\",fillcolor=gold,  pos=\""+(aux1.der.x*1.5)+",-"+aux1.der.y+"!\"];\n";
                             contx++;
                             aux1 = aux1.der;
                         }
@@ -226,9 +226,9 @@ public class matriz {
       
                     String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\neato.exe";
                      System.out.println("d");
-                    String fileInputPath = "C:\\Users\\Julio Garcia\\Documents\\NetBeansProjects\\EDDclase\\matriz2.txt";
+                    String fileInputPath = "matriz2.txt";
                     System.out.println("d");
-                    String fileOutputPath = "C:\\Users\\Julio Garcia\\Documents\\NetBeansProjects\\EDDclase\\matriz2.png";
+                    String fileOutputPath = "matriz2.png";
       
                     String tParam = "-Tpng";
                     String tOParam = "-o";

@@ -6,10 +6,12 @@
 package eddclase;
 
 import java.awt.Desktop;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -121,7 +123,7 @@ public class mprod {
             }
              aux=aux.abajo;
         }
-        return "no existe";
+        return "no";
     }
     public float bprecio(String codigo){
         pnodo aux=inicio.abajo;
@@ -150,6 +152,41 @@ public class mprod {
             aux=aux.abajo;
         }
         return false;
+    }
+    public void in(){
+        pnodo aux;
+        String contenido="----------------------Inventario----------------------\n";
+        if(inicio!=null){
+            aux=inicio.der;
+            while(aux!=null){
+                contenido+="**"+aux.categoria+": \n";
+                contenido+="Cant.    Descripcion    codigo   precio\n";
+                pnodo aux2=aux.abajo;
+                while(aux2!=null){
+                    contenido+="  "+aux2.cant+"     "+aux2.izq.producto+"    "+aux2.izq.codigo+"    "+aux2.precio+"\n";
+                    aux2=aux2.abajo;
+                }
+                
+                aux=aux.der;
+            }
+             try {
+            String ruta = "inventario.txt";
+           
+          
+            File file = new File(ruta);
+           
+            file.createNewFile();
+            
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contenido);
+            bw.close();
+            JOptionPane.showMessageDialog(null,"inventario generado");
+            abrirarchivo("inventario.txt");
+        } catch (IOException p) {
+            p.printStackTrace();
+        }
+        }
     }
     public void graficar(){
         int contx=0;
@@ -277,9 +314,9 @@ public class mprod {
       
                     String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\neato.exe";
                      System.out.println("d");
-                    String fileInputPath = "C:\\Users\\Julio Garcia\\Documents\\NetBeansProjects\\EDDclase\\matriz.txt";
+                    String fileInputPath = "matriz.txt";
                     System.out.println("d");
-                    String fileOutputPath = "C:\\Users\\Julio Garcia\\Documents\\NetBeansProjects\\EDDclase\\matriz.png";
+                    String fileOutputPath = "matriz.png";
       
                     String tParam = "-Tpng";
                     String tOParam = "-o";

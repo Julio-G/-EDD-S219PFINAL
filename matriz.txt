@@ -12,11 +12,11 @@ ndF01->ndF02[dir=both];
 ndF02 [label = "Nombre: jabon de mano\n Marca: avon\n Codigo: 0002",fillcolor = orangered, pos="0,-2!"];
 
 ndF01-> nd11[dir=both];
-nd11[label = "2",fillcolor=gold, pos="1.5,-1!" ];
+nd11[label = "7",fillcolor=gold, pos="1.5,-1!" ];
 ndF02-> nd12[dir=both];
 nd12[label = "5",fillcolor=gold, pos="1.5,-2!" ];
 ndC10-> nd11[dir=both];
-nd11[label = "2",fillcolor=gold, pos="1.5,-1!" ];
+nd11[label = "7",fillcolor=gold, pos="1.5,-1!" ];
 nd11 -> nd12[dir=both];
 nd12[label = "5",fillcolor=gold,  pos="1.5,-2!"];
 
