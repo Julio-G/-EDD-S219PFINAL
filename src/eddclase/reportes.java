@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class reportes extends JFrame{
     JLabel lbbienvenida,lbnombre,lbver;
-    JButton btnregistrar,btnvender,btnreporte;
+    JButton btnregistrar,btnvender,btnreporte,btncli;
     public reportes(){
         super("EDD drive");
         //setSize(800,550);
@@ -69,11 +69,23 @@ public class reportes extends JFrame{
                 EDDclase.kl.in();
             }
         });
+        btncli = new JButton("Clientes");
+	btncli.setBounds(90,230,160,20);
+	btncli.setBackground(Color.white);
+	btncli.setFont(fuente1);
+	btncli.addActionListener(new ActionListener()
+	{
+            @Override
+            public void actionPerformed(ActionEvent e){
+                EDDclase.ls.in();
+            }
+        });
         
         add(lbbienvenida);
         add(btnregistrar);
         add(btnvender);
         add(btnreporte);
+        add(btncli);
         
         
    }    

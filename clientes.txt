@@ -1,0 +1,8 @@
+----------------------Clientes----------------------
+**Fecha: 19/10/2019 Hora:22:21 
+Nombre:julio
+NIT: 1234
+Cant.    Descripcion    codigo   precio
+  3      jabon de mano    0002    Q6.0
+TOTAL: Q18.0
+

@@ -163,7 +163,7 @@ public class mprod {
                 contenido+="Cant.    Descripcion    codigo   precio\n";
                 pnodo aux2=aux.abajo;
                 while(aux2!=null){
-                    contenido+="  "+aux2.cant+"     "+aux2.izq.producto+"    "+aux2.izq.codigo+"    "+aux2.precio+"\n";
+                    contenido+="  "+aux2.cant+"     "+aux2.izq.producto+"    "+aux2.izq.codigo+"    Q"+aux2.precio+"\n";
                     aux2=aux2.abajo;
                 }
                 

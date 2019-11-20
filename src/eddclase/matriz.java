@@ -11,10 +11,12 @@ package eddclase;
  */
 
 import java.awt.Desktop;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 public class matriz {
     public  mnodo inicio=null;
     public  mnodo ultimox=null;
@@ -253,6 +255,41 @@ public class matriz {
         
         }
     }
+     
+    public void in(){
+        mnodo aux;
+        String contenido="----------------------Clientes----------------------\n";
+        if(inicio!=null){
+            aux=inicio.der;
+            while(aux!=null){
+                contenido+="**Fecha: "+aux.fecha+" Hora:"+aux.hora+" \n";
+                contenido+="Nombre:"+aux.cliente+"\nNIT: "+aux.nit+"\n";
+                contenido+="Cant.    Descripcion    codigo   precio\n";
+                for(int i=0;aux.producto[i]!=null;i++){
+                    contenido+="  "+aux.cantidad[i]+"      "+aux.producto[i]+"    "+aux.codigo[i]+"    Q"+aux.precio[i]+"\n";
+                }
+                contenido+="TOTAL: Q"+aux.total+"\n\n";
+                aux=aux.der;
+            }
+            try {
+            String ruta = "clientes.txt";
+           
+            File file = new File(ruta);
+           
+            file.createNewFile();
+            
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contenido);
+            bw.close();
+            JOptionPane.showMessageDialog(null,"Reporte clientes generado");
+            abrirarchivo("clientes.txt");
+        } catch (IOException p) {
+            p.printStackTrace();
+        }
+        }
+    }
+            
     public void abrirarchivo(String archivo){
 
      try {
