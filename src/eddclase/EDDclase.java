@@ -127,8 +127,8 @@ public class EDDclase extends JFrame{
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         System.out.println(timestamp);
         sd.insertar("admin",toHexString(getSHA("admin")));
-        kl.insertar(10, "0001", 7,"jabon","higiene","avon");
-        kl.insertar(6, "0002", 5,"jabon de mano","higiene","avon");
+       /* kl.insertar(10, "0001", 7,"jabon","higiene","avon");
+        kl.insertar(6, "0002", 5,"jabon de mano","higiene","avon");*/
        /* int []so=new int[10];
         so[0]=1;
         so[1]=2;

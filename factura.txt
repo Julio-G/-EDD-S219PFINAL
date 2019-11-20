@@ -2,9 +2,9 @@
         Tienda del chino, S.A.
         0 calle 0-60,z.7
 --------Datos del cliente--------
-       Nombre: julio
-       NIT: 1234
+       Nombre: juna
+       NIT: 123
 ---Descripcion de la factura---
 Cant.    Descripcion    codigo   precio
-  3     jabon de mano     0002   6.0
-Total: 18.0
+  3     jabon     0001   5.0
+Total: 15.0
